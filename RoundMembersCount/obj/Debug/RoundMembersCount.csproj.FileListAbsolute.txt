@@ -1,6 +1,0 @@
-d:\users\owner\documents\visual studio 2013\Projects\RoundMembersCount\RoundMembersCount\bin\Debug\RoundMembersCount.exe.config
-d:\users\owner\documents\visual studio 2013\Projects\RoundMembersCount\RoundMembersCount\bin\Debug\RoundMembersCount.exe
-d:\users\owner\documents\visual studio 2013\Projects\RoundMembersCount\RoundMembersCount\bin\Debug\RoundMembersCount.pdb
-d:\users\owner\documents\visual studio 2013\Projects\RoundMembersCount\RoundMembersCount\obj\Debug\RoundMembersCount.csprojResolveAssemblyReference.cache
-d:\users\owner\documents\visual studio 2013\Projects\RoundMembersCount\RoundMembersCount\obj\Debug\RoundMembersCount.exe
-d:\users\owner\documents\visual studio 2013\Projects\RoundMembersCount\RoundMembersCount\obj\Debug\RoundMembersCount.pdb
