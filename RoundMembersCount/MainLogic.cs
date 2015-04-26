@@ -51,11 +51,11 @@ namespace RoundMembersCount
                     Write("|");
                     Write(membersCount.ToString());
 
-                    Write("|");
-                    Write(winnersCount.ToString());
+                    //Write("|");
+                    //Write(winnersCount.ToString());
 
-                    Write("|");
-                    Write(leaguesCount.ToString());
+                    //Write("|");
+                    //Write(leaguesCount.ToString());
 
                     var writing =
                         CreateAllLeagueInfoWithGosaCombinations(leaguesCount, membersCount, winnersCount)
@@ -222,20 +222,27 @@ namespace RoundMembersCount
             var firstLeagueWinRate = info[0].WinRate;
             foreach (var i in info)
             {
-                list.Add(1 - (i.WinRate*二倍補正/firstLeagueWinRate));
+                list.Add(i.WinRate*二倍補正);
                 二倍補正 *= 2;
             }
             return GetRms(list);
         }
 
-        private static double GetRms(IEnumerable<double> gosa)
+        private static double GetRms(IReadOnlyList<double> values)
         {
-            var notRooted =
-                gosa
-                    .Select(i => i*i)
-                    .Average();
+            var sum = values.Sum();
+            var 補正をかけたvalues = values.Select(v => v/sum*values.Count).ToArray();
 
-            return Math.Pow(notRooted, 0.5);
+            var average = 補正をかけたvalues.Average(); // ちなみにこれは絶対1になるので実は計算する必要ない
+
+            var notRooted = 
+                補正をかけたvalues
+                .Select(i => average - i)
+                .Select(gosa => gosa*gosa)
+                .Average();
+
+            var result = Math.Pow(notRooted, 0.5);
+            return result;
         }
     }
 
